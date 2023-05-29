@@ -3,7 +3,7 @@ param suffix string
 param identityId string
 
 var tenantId = subscription().tenantId
-var contosoPassword = base64('contoso1234!')
+//var contosoPassword = base64('contoso1234!')
 
 resource kv 'Microsoft.KeyVault/vaults@2023-02-01' = {
   name: 'kvi${suffix}'

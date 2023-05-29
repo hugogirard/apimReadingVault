@@ -46,3 +46,10 @@ module kv 'modules/keyVault/keyVault.bicep' = {
   }
 }
 
+module apis 'modules/apis/validateSecretVault.bicep' = {
+  scope: resourceGroup(rg.name)
+  name: 'apis'
+  params: {
+    apimName: apim.outputs.apimName
+  }
+}
