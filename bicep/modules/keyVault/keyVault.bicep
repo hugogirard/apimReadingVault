@@ -25,10 +25,10 @@ resource kv 'Microsoft.KeyVault/vaults@2023-02-01' = {
   }
 }
 
-resource contosoUser 'Microsoft.KeyVault/vaults/secrets@2023-02-01' = {
-  name: 'contoso@contoso.com'
-  parent: kv
-  properties: {
-    value: contosoPassword
-  }
-}
+// resource contosoUser 'Microsoft.KeyVault/vaults/secrets@2023-02-01' = {
+//   name: 'contoso@contoso.com'
+//   parent: kv
+//   properties: {
+//     value: contosoPassword
+//   }
+// }
