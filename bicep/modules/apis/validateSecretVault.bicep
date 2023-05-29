@@ -30,6 +30,15 @@ resource operationPost 'Microsoft.ApiManagement/service/apis/operations@2022-09-
     displayName: 'validate'
     method: 'POST'
     urlTemplate: '/'
-    description: 'Validate secret from the vault'
+    description: 'Validate secret from the vault'    
+  }
+}
+
+resource policyOperation 'Microsoft.ApiManagement/service/apis/operations/policies@2022-09-01-preview' = {  
+  parent: operationPost
+  name: 'policy'  
+  properties: {
+    format: 'rawxml'
+    value: loadTextContent('./policy.xml')
   }
 }
