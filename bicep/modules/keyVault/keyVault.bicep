@@ -54,3 +54,5 @@ resource kvRoleAssignment 'Microsoft.Authorization/roleAssignments@2020-04-01-pr
     principalType: 'ServicePrincipal'
   }
 }
+
+output kvName string = kv.name

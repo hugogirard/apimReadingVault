@@ -6,13 +6,15 @@ resource apiManagement 'Microsoft.ApiManagement/service@2022-08-01' existing = {
 
 resource api 'Microsoft.ApiManagement/service/apis@2022-09-01-preview' = {
   parent: apiManagement
-  name: 'vault-api'  
+  name: 'validatevaultsecret'    
   properties: {
+    displayName: 'Validate Vault Secret'
+    apiRevision: '1'
     path: 'vault'
     protocols: [
       'https'
     ]
-    subscriptionRequired: true
+    subscriptionRequired: false
     subscriptionKeyParameterNames: {
       header: 'Ocp-Apim-Subscription-Key'
       query: 'subscription-key'
@@ -21,13 +23,13 @@ resource api 'Microsoft.ApiManagement/service/apis@2022-09-01-preview' = {
   }
 }
 
-// resource operationPost 'Microsoft.ApiManagement/service/apis/operations@2022-09-01-preview' = {
-//   parent: api
-//   name: 'validate'
-//   properties: {
-//     displayName: 'Validate'
-//     method: 'POST'
-//     urlTemplate: '/'
-//     description: 'Validate a secret'
-//   }
-// }
+resource operationPost 'Microsoft.ApiManagement/service/apis/operations@2022-09-01-preview' = {
+  parent: api
+  name: 'validate'
+  properties: {
+    displayName: 'validate'
+    method: 'POST'
+    urlTemplate: '/'
+    description: 'Validate secret from the vault'
+  }
+}

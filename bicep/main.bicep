@@ -46,6 +46,15 @@ module kv 'modules/keyVault/keyVault.bicep' = {
   }
 }
 
+module namedValues 'modules/apim/namedValues.bicep' = {
+  scope: resourceGroup(rg.name)
+  name: 'namedValues'
+  params: {
+    apimName: apim.outputs.apimName
+    vaultName: kv.outputs.kvName
+  }
+}
+
 module apis 'modules/apis/validateSecretVault.bicep' = {
   scope: resourceGroup(rg.name)
   name: 'apis'
@@ -53,3 +62,4 @@ module apis 'modules/apis/validateSecretVault.bicep' = {
     apimName: apim.outputs.apimName
   }
 }
+
