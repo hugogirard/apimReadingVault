@@ -21,13 +21,13 @@ resource api 'Microsoft.ApiManagement/service/apis@2022-09-01-preview' = {
   }
 }
 
-resource operationPost 'Microsoft.ApiManagement/service/apis/operations@2022-09-01-preview' = {
-  parent: api
-  name: 'validate'
-  properties: {
-    displayName: 'Validate'
-    method: 'POST'
-    urlTemplate: '/'
-    description: 'Validate a secret'
-  }
-}
+// resource operationPost 'Microsoft.ApiManagement/service/apis/operations@2022-09-01-preview' = {
+//   parent: api
+//   name: 'validate'
+//   properties: {
+//     displayName: 'Validate'
+//     method: 'POST'
+//     urlTemplate: '/'
+//     description: 'Validate a secret'
+//   }
+// }
