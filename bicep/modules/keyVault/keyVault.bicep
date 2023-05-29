@@ -11,22 +11,14 @@ resource kv 'Microsoft.KeyVault/vaults@2023-02-01' = {
   properties: {
     tenantId: tenantId
     accessPolicies: [
-      {
-        tenantId: tenantId
-        objectId: identityId
-        permissions: {
-          keys: ['all']
-          secrets: ['all']
-          certificates: ['all']
-        }
-      }
     ]
     sku: {
       name: 'standard'
       family: 'A'
     }
+    enableRbacAuthorization: true
     networkAcls: {
-      defaultAction: 'Allow'
+      defaultAction: 'Allow'      
       bypass: 'AzureServices'
     }
   }
