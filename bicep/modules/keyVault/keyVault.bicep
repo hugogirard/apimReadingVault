@@ -6,7 +6,7 @@ var tenantId = subscription().tenantId
 var contosoPassword = base64('contoso1234!')
 
 resource kv 'Microsoft.KeyVault/vaults@2023-02-01' = {
-  name: 'kv${suffix}'
+  name: 'kvi${suffix}'
   location: location
   properties: {
     tenantId: tenantId
@@ -17,6 +17,7 @@ resource kv 'Microsoft.KeyVault/vaults@2023-02-01' = {
       family: 'A'
     }
     enableRbacAuthorization: true
+    enableSoftDelete: false
     networkAcls: {
       defaultAction: 'Allow'      
       bypass: 'AzureServices'
