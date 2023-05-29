@@ -1,7 +1,7 @@
 param apimName string
 param vaultName string
 
-resource apim 'Microsoft.ApiManagement/service@2022-08-01' = {
+resource apim 'Microsoft.ApiManagement/service@2022-08-01' existing = {
   name: apimName
 }
 
