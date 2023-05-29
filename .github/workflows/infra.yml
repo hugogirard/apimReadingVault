@@ -11,7 +11,7 @@ jobs:
 
     env:      
       LOCATION: 'canadacentral'
-      RG_NAME: 'rg-apim-vault'
+      RG_NAME: 'rg-apim-vault-demo'
 
     runs-on: ubuntu-latest
 
